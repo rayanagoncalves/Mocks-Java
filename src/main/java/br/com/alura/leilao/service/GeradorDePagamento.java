@@ -24,7 +24,7 @@ public class GeradorDePagamento {
 	}
 
 	public void gerarPagamento(Lance lanceVencedor) {
-		LocalDate vencimento = LocalDate.now().plusDays(1);
+		LocalDate vencimento = LocalDate.now(clock).plusDays(1);
 		Pagamento pagamento = new Pagamento(lanceVencedor, proximoDiaUtil(vencimento));
 		this.pagamentos.salvar(pagamento);
 	}
