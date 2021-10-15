@@ -7,6 +7,7 @@ import br.com.alura.leilao.service.FinalizarLeilaoService;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -17,18 +18,18 @@ import java.util.List;
 
 public class FinalizarLeilaoServiceTest {
 
-    private FinalizarLeilaoService service;
-
     @Mock
     private LeilaoDao leilaoDao;
 
     @Mock
     private EnviadorDeEmails enviadorDeEmails;
 
+    @InjectMocks
+    private FinalizarLeilaoService service;
+
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.initMocks(this);
-        this.service = new FinalizarLeilaoService(leilaoDao, enviadorDeEmails);
     }
 
     @Test
